@@ -17,38 +17,41 @@ class Product():
     def __init__(self, name: str, price: float) -> None:
         self.name = name
         self.price = price
-    
-    def __eq__(self, other) -> bool: #равно ==
+
+    def __eq__(self, other) -> bool:  # равно ==
         if self.price == other.price:
             return True
         return False
-    
-    def __ne__(self, other) -> bool: #не равно !=
+
+    def __ne__(self, other) -> bool:  # не равно !=
         if self.price != other.price:
             return True
         return False
 
-    def __gt__(self, other) -> bool: # больше, >
+    def __gt__(self, other) -> bool:  # больше, >
         if self.price > other.price:
             return True
         return False
 
-    def __ge__(self, other) -> bool: # не больше, меньше или равно, <=
+    def __ge__(self, other) -> bool:  # не больше, меньше или равно, <=
         if self.price <= other.price:
             return True
         return False
-    
-    def __lt__(self, other) -> bool: # меньше, <
+
+    def __lt__(self, other) -> bool:  # меньше, <
         if self.price < other.price:
             return True
         return False
-    
-    def __le__(self, other) -> bool: # не меньше, больше или равно, >=
+
+    def __le__(self, other) -> bool:  # не меньше, больше или равно, >=
         if self.price >= other.price:
             return True
         return False
-    
+
     def __str__(self):
+        return f'{self.name} - {self.price}'
+
+    def __repr__(self):
         return f'{self.name} - {self.price}'
 
 
@@ -59,14 +62,14 @@ class Shop():
 
     def add(self, product: Product) -> None:
         self.list_product.append(product)
-    
-    def sort_product_by_price(self):
-        self.list_product.sort()
 
-        
+    def sort_product_by_price(self):
+        result_list = sorted(self.list_product)
+        return result_list
+
     def get_most_expencive_product(self):
         return max(self.list_product)
-    
+
     def __str__(self):
         return "\n".join(f"=={prod}==" for prod in self.list_product)
 
@@ -74,7 +77,9 @@ class Shop():
 if __name__ == "__main__":
     product_1 = Product('Chocolate', 100)
     product_2 = Product('Milk', 70)
-    products = []
-    shop = Shop(products)
+    shop = Shop([])
+    shop.add(product_1)
+    shop.add(product_2)
     print(product_2)
-    print(shop)
+    print(shop.sort_product_by_price())
+    print(shop.get_most_expencive_product())

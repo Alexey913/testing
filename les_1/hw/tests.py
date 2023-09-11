@@ -25,9 +25,7 @@ product_2 = Product('Milk', 70)
 product_3 = Product('Cookies', 140)
 product_4 = Product('Souce', 75)
 
-products = []
-
-shop = Shop(products)
+shop = Shop([])
 
 shop.add(product_1)
 shop.add(product_2)
@@ -36,6 +34,5 @@ shop.add(product_4)
 
 assert product_1 > product_2
 assert shop.get_most_expencive_product() == product_3
-shop.sort_product_by_price()
-assert shop == [product_2, product_4, product_1, product_3]
+assert shop.sort_product_by_price() == [product_2, product_4, product_1, product_3]
 print('Тестирование задания 2 завершено без ошибок')
