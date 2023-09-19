@@ -3,7 +3,6 @@ from fizz_buzz import fizz_buzz
 from first_last_6 import first_last_6
 from discount import discount
 from lucky_sum import lucky_sum
-import coverage
 
 
 class TestFizzBuzz(unittest.TestCase):

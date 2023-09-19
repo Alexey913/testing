@@ -8,7 +8,7 @@ class User():
         self._password = password
         self._autification = False
 
-    def autification(self, login: str, password: str) -> bool:
+    def autificate(self, login: str, password: str) -> bool:
         if self._login == login and self._password == password:
             self._autification = True
         return self._autification
@@ -20,3 +20,6 @@ class User():
     @property
     def password(self):
         return self._password
+    @property
+    def autification(self):
+        return self._autification
